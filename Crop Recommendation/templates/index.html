@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Recommender</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom,#8360c3,#2ebf91);
+      height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  
+    <div class="container" style="margin-top:20px;margin-bottom: 50px;">
+      
+      <h1 style="text-align: center;">Crop Recommendation System</h1>
+      <p style="text-align: center;">This system will help you select the most appropriate crop for your field</p>
+    </div>
+  
+    <div class="container">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <div class="row" style="margin: 20px;">
+        <div class="col form-group">
+    	<input type="text" name="n" placeholder="Nitrogen" required="required" class="form-control"/>
+        </div>
+        <div class="col form-group">
+        <input type="text" name="p" placeholder="Phosphorus" required="required" class="form-control" />
+      </div>
+      <div class="col form-group">
+		    <input type="text" name="k" placeholder="Potassium" required="required" class="form-control"/>
+      </div>
+        </div>
+        <div class="row" style="margin: 20px;">
+          <div class="col form-group">
+        <input type="text" name="temperature" placeholder="Temperature" required="required" class="form-control" />
+      </div>
+      <div class="col form-group">
+        <input type="text" name="humidity" placeholder="Humidity" required="required" class="form-control"/>
+      </div>
+      <div class="col form-group">
+        <input type="text" name="ph" placeholder="pH level" required="required" class="form-control"/>
+      </div>
+      </div>
+      <div class="row" style="margin: 20px; margin-left: 375px;">
+        <div class="col form-group">
+        <input type="text" name="rainfall" placeholder="Rainfall" required="required" class="form-control"/>
+      </div>
+      <div class="col">
+
+      </div>
+      </div>
+      
+        <button type="submit" class="btn btn-primary " style="margin-left: 430px;">Predict</button>
+    </form>
+  </div>
+
+   <br>
+   <div  style="margin-left: 475px;">
+   <h2> <u>{{ prediction_text }}</u></h2>
+   </div>
+   
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br><br><br><br>
+   <br><br><br><br><br>
+
+ </div>
+
+
+</body>
+</html>
